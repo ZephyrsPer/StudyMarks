@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 类选择器、属性选择器、伪类选择器 权重为10 */
+    button[disabled] {
+      background-color: #ccc;
+      color: #666;
+    }
+
+    button {
+      background-color: red;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    div[class="icon"] {
+      background-color: red;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      width: 20px;
+      height: 20px;
+    }
+
+    div[class^="_"] {
+      background-color: rgb(175, 143, 143);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+    }
+
+    div[class$="_"] {
+      background-color: rgb(27, 148, 108);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <button disabled="disabled">按钮</button>
+  <div class="icon"></div>
+  <div class="icon_"></div>
+  <div class="_icon"></div>
+</body>
+
+</html>
