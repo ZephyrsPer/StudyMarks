@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Animation and Interaction</title>
+  <style>
+    /* 添加一些样式 */
+    #animatedRect {
+      fill: blue;
+      transition: fill 0.3s ease;
+      /* 添加过渡效果 */
+    }
+
+    svg {
+      background-color: aqua;
+      cursor: pointer;
+    }
+
+
+    .line-md--download-outline-loop {
+      display: inline-block;
+      width: 122px;
+      height: 122px;
+      --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath stroke-dasharray='14' stroke-dashoffset='14' d='M6 19h12'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.5s' dur='0.4s' values='14;0'/%3E%3C/path%3E%3Cpath stroke-dasharray='18' stroke-dashoffset='18' d='M12 4 h2 v6 h2.5 L12 14.5M12 4 h-2 v6 h-2.5 L12 14.5'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='18;0'/%3E%3Canimate attributeName='d' calcMode='linear' dur='1.5s' keyTimes='0;0.7;1' repeatCount='indefinite' values='M12 4 h2 v6 h2.5 L12 14.5M12 4 h-2 v6 h-2.5 L12 14.5;M12 4 h2 v3 h2.5 L12 11.5M12 4 h-2 v3 h-2.5 L12 11.5;M12 4 h2 v6 h2.5 L12 14.5M12 4 h-2 v6 h-2.5 L12 14.5'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+      background-color: currentColor;
+      -webkit-mask-image: var(--svg);
+      mask-image: var(--svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SVG 元素 -->
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <!-- 矩形，点击时颜色变化 -->
+    <rect id="animatedRect" x="50" y="50" width="100" height="100" fill="blue" onmouseover="changeColor('red')"
+      onmouseout="changeColor('blue')" onclick="move()" />
+    <!-- 动画，矩形宽度变化 -->
+    <animate attributeName="width" from="100" to="150" dur="1s" repeatCount="indefinite" />
+  </svg>
+
+  <span class="line-md--download-outline-loop"></span>
+
+
+  <!-- JavaScript 代码 -->
+  <script>
+    // 改变矩形颜色的函数
+    function changeColor(color) {
+      document.getElementById('animatedRect').setAttribute('fill', color);
+    }
+
+    // 移动矩形的函数
+    function move() {
+      var rect = document.getElementById('animatedRect');
+      var newX = parseInt(rect.getAttribute('x')) + 10; // 每次向右移动10个单位
+      rect.setAttribute('x', newX);
+    }
+  </script>
+</body>
+
+</html>

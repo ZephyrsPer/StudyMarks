@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG图标</title>
+  <style>
+    .svg-icon {
+      width: 100px;
+      height: 100px;
+      background: url('./res/search.svg') no-repeat center center;
+      background-size: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <ol>
+    <li>
+      <strong>使用img标签：</strong> 适合简单显示静态 SVG 图标。
+      <img src="./res/search.svg" alt="SVG图标" width="120px " height="120px">
+      <ul>
+        <li>优点：简单易用。</li>
+        <li>缺点：无法直接在 SVG 内部进行样式或脚本控制，不能动态更改 SVG 内容。</li>
+      </ul>
+    </li>
+  </ol>
+
+  <ol>
+    <li>
+      <strong>使用object标签：</strong> 适合需要交互和样式控制的 SVG。
+      <object data="./res/search.svg" type="image/svg+xml" width="120px " height="120px"></object>
+      <ul>
+        <li>优点：支持动态交互和样式控制，可以嵌入外部资源。</li>
+        <li>缺点：在某些旧版浏览器中的支持不如 img 标签，需要处理可能的安全性问题（如跨域访问）。</li>
+      </ul>
+    </li>
+  </ol>
+
+  <ol>
+    <li>
+      <strong>直接嵌入svg文件：</strong> 适合需要直接控制和修改 SVG 内容的情况。
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.35em" height="1em" viewBox="0 0 256 191">
+        <defs>
+          <linearGradient id="IconifyId18fb26e88d771efd4143" x1="100%" x2="0%" y1="22.172%" y2="77.828%">
+            <stop offset="0%" stop-color="#F90" />
+            <stop offset="100%" stop-color="#FFC300" />
+          </linearGradient>
+        </defs>
+        <path fill="pink"
+          d="M55.71 158.476h72.106l18.47 32.508H0l51.364-89.006L72.89 64.706l18.48 32.022zM82.6 47.85l17.744-30.746l100.42 173.88h-35.562zM110.221 0h35.516L256 190.984h-35.56z" />
+      </svg>
+      <ul>
+        <li>优点：完全控制 SVG 内容和样式，可以直接在 HTML 中修改和操作 SVG 元素。</li>
+        <li>缺点：增加了 HTML 文件的体积，不易重用，需要复制粘贴相同的 SVG 代码。</li>
+      </ul>
+    </li>
+  </ol>
+
+
+  <ol>
+    <li>
+      <strong>使用CSS背景图：</strong> 适合用作装饰性背景图像的 SVG。
+      <div class="svg-icon"></div>
+      <ul>
+        <li>优点：适合使用在背景或装饰元素中，可以通过 CSS 控制显示和布局。</li>
+        <li>缺点：无法控制 SVG 内部样式和脚本，不支持交互操作。</li>
+      </ul>
+    </li>
+  </ol>
+
+  <ol>
+    <li>
+      <strong>使用iframe标签：</strong> 适合隔离复杂 SVG 文档或应用。
+      <iframe src="./res/search.svg"></iframe>
+      <ul>
+        <li>优点：与 object 类似，可以加载外部资源，隔离了 SVG 文件的作用域，防止样式和脚本冲突。</li>
+        <li>缺点：性能开销较大，每个 iframe 都会创建一个新的浏览上下文，不太适合小图标，更多用于嵌入复杂的文档或应用。</li>
+      </ul>
+    </li>
+  </ol>
+</body>
+
+</html>
