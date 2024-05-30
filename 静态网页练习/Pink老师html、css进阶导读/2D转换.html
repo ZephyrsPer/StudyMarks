@@ -5,10 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    /* 移动盒子的位置：定位、盒子的外边距、2d转换移动 */
+    div:first-child {
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      transform: translate(100px, 100px);
+      /* transform: translate(50%, 50%); */
+    }
+
+    div:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(93, 206, 168);
+      transform: rotate(45deg);
+      transform-origin: right top;
+      transition: all 1s;
+    }
+
+    div:nth-child(2):hover {
+      transform: rotate(90deg);
+    }
+
+
+    div:nth-child(3) {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(93, 206, 168);
+      /* transform: translate(100px, 100px); */
+    }
+
+    div:nth-child(3):hover {
+      transform: scale(2);
+    }
+
+    .tri {
+      width: 200px;
+      height: 20px;
+      border: 1px solid rgb(93, 206, 168);
+      position: relative;
+    }
+
+    .tri::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+      transform: rotate(45deg);
+      transition: all 1s;
+    }
+
+    .tri:hover::after {
+      transform: rotate(225deg);
+      top: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
+  <div>移动</div>
+  <div>旋转</div>
+  <div>缩放</div>
+
+  <div class="tri"></div>
 </body>
 
 </html>
