@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation on Selection</title>
+  <style>
+    /* 隐藏复选框 */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    @keyframes fireworks-position {
+
+      0%,
+      19.9% {
+        margin-top: 10%;
+        margin-left: 40%;
+      }
+
+      20%,
+      39.9% {
+        margin-top: 40%;
+        margin-left: 30%;
+      }
+
+      40%,
+      59.9% {
+        margin-top: 20%;
+        margin-left: 70%;
+      }
+
+      60%,
+      79.9% {
+        margin-top: 30%;
+        margin-left: 20%;
+      }
+
+      80%,
+      99.9% {
+        margin-top: 30%;
+        margin-left: 80%;
+      }
+    }
+
+    @keyframes fireworks-gravity {
+      to {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fireworks-bang {
+      to {
+        box-shadow: 114px -107.333px #8800ff, 212px -166.333px #a600ff, 197px -6.333px #ff006a,
+          179px -329.333px #3300ff, -167px -262.333px #ff0062, 233px 65.667px #ff008c,
+          81px 42.667px #0051ff, -13px 54.667px #00ff2b, -60px -183.333px #0900ff,
+          127px -259.333px #ff00e6, 117px -122.333px #00b7ff, 95px 20.667px #ff8000,
+          115px 1.667px #0004ff, -160px -328.333px #00ff40, 69px -242.333px #000dff,
+          -208px -230.333px #ff0400, 30px -15.333px #e6ff00, 235px -15.333px #fb00ff,
+          80px -232.333px #d5ff00, 175px -173.333px #00ff3c, -187px -176.333px #aaff00,
+          4px 26.667px #ff6f00, 227px -106.333px #ff0099, 119px 17.667px #00ffd5,
+          -102px 4.667px #ff0088, -16px -4.333px #00fff7, -201px -310.333px #00ffdd,
+          64px -181.333px #f700ff, -234px -15.333px #00fffb, -184px -263.333px #aa00ff,
+          96px -303.333px #0037ff, -139px 10.667px #0026ff, 25px -205.333px #00ff2b,
+          -129px -322.333px #40ff00, -235px -187.333px #26ff00, -136px -237.333px #0091ff,
+          -82px -321.333px #6a00ff, 7px -267.333px #ff00c8, -155px 30.667px #0059ff,
+          -85px -73.333px #6a00ff, 60px -199.333px #55ff00, -9px -289.333px #00ffaa,
+          -208px -167.333px #00ff80, -13px -299.333px #ff0004, 179px -164.333px #ff0044,
+          -112px 12.667px #0051ff, -209px -125.333px #ff00bb, 14px -101.333px #00ff95,
+          -184px -292.333px #ff0099, -26px -168.333px #09ff00, 129px -67.333px #0084ff,
+          -17px -23.333px #0059ff, 129px 34.667px #7300ff, 35px -24.333px #ffd900,
+          -12px -297.333px #ff8400, 129px -156.333px #0dff00, 157px -29.333px #1a00ff,
+          -221px 6.667px #ff0062, 0px -311.333px #ff006a, 155px 50.667px #00ffaa,
+          -71px -318.333px #0073ff;
+      }
+    }
+
+    /* 当复选框选中时，改变其相邻元素的样式 */
+    input[type="checkbox"]:checked+.box {
+      animation: fireworks-bang 1s ease-out forwards, fireworks-gravity 1s ease-in 1s forwards, fireworks-position 5s linear 2s forwards;
+    }
+
+    /* 其他样式 */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 复选框和相关元素 -->
+  <input type="checkbox" id="checkbox">
+  <div class="box">2324</div>
+
+</body>
+
+</html>
